@@ -1,6 +1,5 @@
 const express       = require('express'),
       app           = express(),
-      PORT          = process.env.PORT || 3000,
       bodyParser    = require("body-parser"),
       mongoose      = require('mongoose'),
       passport      = require('passport'),
@@ -59,6 +58,6 @@ app.use('/user', userRoutes);
 app.use('/playlist', playlistRoutes);
 app.use('/admin', adminRoutes);
 
-app.listen(PORT, ()=>{
-    console.log("Kmusic Activated on port "+ PORT);
+app.listen(process.env.PORT || 3000, ()=>{
+    console.log("Kmusic Activated on port "+ this.address().port, app.settings.env);
 });
