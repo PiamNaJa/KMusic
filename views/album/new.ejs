@@ -1,0 +1,33 @@
+<%- include("../partials/admin_header.ejs") %>
+<div class="container">
+    <h1 class="display-5">Add New Album</h1>
+    <form action="/admin/album/new" method="post">
+        <div class="mb-3">
+            <label class="form-label">URL</label>
+            <input type="text" class="form-control" name="image" placeholder="Image URL" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Album Title</label>
+            <input type="text" class="form-control" name="name" placeholder="Album Title" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Artist</label>
+            <input class="form-control" name = "artist" list="Artistdatalist" id="exampleDataList" placeholder="Select Artist" autocomplete="off" required>
+            <datalist id="Artistdatalist">
+                <% artist.forEach((artist)=>{ %>
+                    <option value="<%= artist.name %>"></option>
+                <% }); %>
+            </datalist>  
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+        <a href="/admin">Go back</a>
+        <a href="/admin/artist/new" class="btn btn-outline-dark float-end">Add New Artist</a>
+        <a href="/admin/song/new" class="btn btn-outline-dark float-end me-lg-3">Add New Song</a>
+    </form>
+</div>
+
+
+<%- include("../partials/admin_footer.ejs") %>

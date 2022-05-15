@@ -1,0 +1,196 @@
+<% searchword = word; %>
+<%- include("../partials/header.ejs") %>
+<div class="filter mb-3">
+    <h3 class="d-inline text-decoration-underline search--navigation-current">All</h3>
+    <a href="/search/<%= word %>/song" class="search--navigation"><h3 class="d-inline">Songs</h3></a>
+    <a href="/search/<%= word %>/artist" class="search--navigation"><h3 class="d-inline">Artists</h3></a>
+    <a href="/search/<%= word %>/album" class="search--navigation"><h3 class="d-inline">Albums</h3></a>
+</div>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-3 searchpage--bg">
+    <div class="col">
+        <div class="mb-4 rounded-3 shadow-sm">
+            <div class="py-3 d-flex justify-content-between">
+                <h2 class="my-0 d-inline fw-bold">Songs</h2>
+                <a href="/search/<%= word %>/song" class="d-inline mt-auto me-1" id="seeall">See All</a>
+            </div>
+            <%if(song.length > 0){ %>
+            <div class="table-responsive overflow-hidden">
+                <table class="table table-striped table-sm sortable">
+                  <thead>
+                    <tr>
+                      <th class="text-white" scope="col">Title</th>
+                      <th class="text-white" scope="col">Artist</th>
+                      <th class="text-white" scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% let i = 0; %> 
+                    <% song.forEach((song)=>{ %>
+                      <span data-img="<%= song.image %>" data-song="<%= song.name %>" data-artist="<%= song.artist.name%>" data-audio="<%= song.audio %>" id="songdata" class="d-none"></span>
+                      <tr class = "search-song__row" onpointerover="searchsongrow()">
+                        <td class="text-white">
+                          <a class="text-white text-decoration-none" href="/song/<%= song._id %>" id="song"><%= song.name %></a>
+                        </td>
+                        <td class="text-white">
+                          <a class="text-white text-decoration-none" href="/artist/<%= song.artist._id %>">
+                            <%= song.artist.name%></a>
+                          </td>
+                        <td class="text-center" id="tablebt">
+                          <% if(currentUser){ %>
+                            <button type="button" class="my-auto bg-transparent border-0">
+                              <i class="fa-solid fa-play playbt--inrow" id="btnplay"></i>
+                            </button>
+                            <%if(Userfavsong.includes(song._id)){ %>
+                              <form action="/user/removefavsong/<%= song._id %>?_method=PUT" method="post" class="d-inline my-auto">
+                                <button class="btn--unfav bg-transparent border-0">
+                                  <i class="fa-solid fa-heart favbt--inrow"></i>
+                                </button>
+                              </form>
+                            <%} else { %>
+                            <form action="/user/addfavsong/<%= song._id %>?_method=PUT" method="post" class="d-inline my-auto">
+                              <button class="btn--fav bg-transparent border-0" href="/user/addfavsong/<%= song._id %>">
+                                <i class="fa-solid fa-heart favbt--inrow"></i>
+                              </button>
+                            </form>
+                            <%}%>
+
+                            <div class="btn-group dropend">
+                              <button type="button" class="p-0 btn--addplaylist mb-1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-plus addplaylist--inrow"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-dark bg-black position-fixed">
+                                <% if(playlists){ %>
+                                  <% playlists.forEach((playlist)=>{ %>
+                                  <li>
+                                    <form action="/playlist/<%= playlist._id %>/song/<%= song._id %>" method="post">
+                                      <button class="dropdown-item" type="submit"><%= playlist.name %></button>
+                                    </form>
+                                    </li>
+                                  <% }); %>
+                                  <% } %>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addplaylistModal<%=i%>">
+                                    Add to New Playlist
+                                  </button></li>
+                              </ul>
+                            </div>
+                            <div class="modal fade" id="addplaylistModal<%=i%>" tabindex="-1" aria-labelledby="addplaylistModalLabel<%=i%>"
+                              aria-hidden="true">
+                              <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content bg-dark">
+                                  <div class="modal-header">
+                                    <h4 class="modal-title text-white" id="addplaylistModalLabel<%=i++%>">Add New Playlist</h4>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                      aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <form action="/playlist/<%= song._id %> " method="post" enctype="multipart/form-data">
+                
+                                      <div class="mb-3">
+                                        <label for="" class="form-label text-white">Name</label>
+                                        <input class="form-control" name="playlist[name]" type="text" placeholder="Playlist Name" required>
+                                      </div>
+                
+                                      <div class="mb-3">
+                                        <label for="" class="form-label text-white">Playlist Image(optional)</label>
+                                        <input class="form-control" name="image" type="file" accept="image/*">
+                                      </div>
+                
+                                      <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-info">Save</button>
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                      </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <% } else { %>
+                              <button type="button" class="p-0 btn--addplaylist float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="fa-solid fa-plus addplaylist--inrow"></i>
+                                </button>
+                                <button type="button" class="btn--fav bg-transparent border-0 me-1 float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                  <i class="fa-solid fa-heart favbt--inrow"></i>
+                                </button>
+                                <button type="button" class="my-auto bg-transparent border-0 float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="fa-solid fa-play playbt--inrow"></i>
+                                </button>
+                                <%- include("../partials/login_modal.ejs") %>
+                         <% } %> 
+                        </td>
+                      </tr>
+                    <% }); %>
+                  </tbody>
+                </table>
+              </div>
+              <%} else { %>
+                <h2 class="text-center p-3 pb-4 songside">Not Found</h2>
+              <%} %>
+        </div>
+    </div>
+    <div class="col">
+        <div class="mb-4 rounded-3 shadow-sm">
+            <div class="py-3 d-flex justify-content-between">
+                <h2 class="my-0 fw-bold d-inline">Artists</h2>
+                <a href="/search/<%= word %>/artist" class="d-inline mt-auto me-1" id="seeall">See All</a>
+            </div>
+            <div class="card-body artistside">
+                <ul class="list-unstyled my-auto">
+                    <% if(artist.length > 0){ %>
+                        <% artist.forEach((artist)=>{ %>
+                        <li>
+                            <div class="d-flex py-2 ps-2 artistside__row">
+                                <img src="<%= artist.image %>" width="60px" height="60px"
+                                    class="artistside--img rounded-circle">
+                                <div class="mb-0 py-4 ps-2 small lh-sm w-100">
+                                    <a href="/artist/<%= artist._id %>" class="text-white text-decoration-none mb-1"><strong
+                                            class="artistside--name"><%= artist.name %></strong></a>
+                                </div>
+                                <a href="#" class="my-auto me-2">Play</a>
+                            </div>
+                        </li>
+                        <% }) %>
+                    <% } else{ %>
+                        <li class="text-center"><h2>Not Found</h2></li>
+                        <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="mb-4 rounded-3 shadow-sm">
+            <div class="py-3 d-flex justify-content-between">
+                <h2 class="my-0 fw-bold d-inline">Albums</h2>
+                <a href="/search/<%= word %>/album" class="d-inline mt-auto me-1" id="seeall">See All</a>
+            </div>
+            <div class="card-body albumside">
+                <ul class="list-unstyled my-auto">
+                    <% if(album.length > 0){ %>
+                        <% album.forEach((album)=>{ %>
+                        <li>
+                            <div class="d-flex py-2 ps-2 albumside__row">
+                                <img src="<%= album.image %>" width="60px" height="60px" class="albumside--img">
+                                <div class="mb-0 py-2 ps-2 small lh-sm w-100">
+                                    <div class="d-flex justify-content-between">
+                                        <a href="/album/<%= album._id %>"
+                                            class="text-white text-decoration-none mb-1"><strong
+                                                class="albumside--name"><%= album.name %></strong></a>
+                                    </div>
+                                    <a class="d-inline text-white text-decoration-none"
+                                        href="/artist/<%= album.artist._id %>"><span
+                                            class="albumside--artistname"><%= album.artist.name %></span></a>
+                                </div>
+                                <a href="#" class="my-auto me-2">Play</a>
+                            </div>
+                        </li>
+                        <% }) %>
+                    <% } else{ %>
+                        <li class="text-center"><h2>Not Found</h2></li>
+                        <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer.ejs") %>

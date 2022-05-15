@@ -1,0 +1,28 @@
+<% searchword = word; %>
+<%- include("../partials/header.ejs") %>
+<div class="filter mb-3">
+    <a href="/search/<%= word %>/all" class="search--navigation"><h3 class="d-inline">All</h3></a>
+    <a href="/search/<%= word %>/song" class="search--navigation"><h3 class="d-inline">Songs</h3></a>
+    <a href="/search/<%= word %>/artist" class="search--navigation"><h3 class="d-inline">Artists</h3></a>
+    <h3 class="d-inline text-decoration-underline  search--navigation-current">Albums</h3>
+</div>
+<% if(album.length > 0) { %>
+<div class="row row-cols-2 row-cols-sm-3 row-cols-md-6 searchpage--bg">
+        <% album.forEach((album)=>{ %>
+        <div class="col">
+            <div class="card text-center my-3 shadow-lg searchpage__albumcard">
+              <div class="card-body">
+                  <a href="/album/<%= album._id %>" class="text-decoration-none">
+                      <img src="<%= album.image %>" class="card-img-top album--img">
+                      <h5 class="card-title album--name text-white"><%= album.name %></h5>
+                  </a>
+              </div>
+            </div>
+        </div>
+    <% }) %> 
+  </div>
+  <% } else{ %> 
+    <h1 class="text-center bg-black py-5 display-1">Not Found</h1>
+<%}%> 
+
+<%- include("../partials/footer.ejs") %>
