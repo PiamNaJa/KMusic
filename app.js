@@ -58,6 +58,6 @@ app.use('/user', userRoutes);
 app.use('/playlist', playlistRoutes);
 app.use('/admin', adminRoutes);
 
-app.listen(process.env.port || 3000, ()=>{
+app.listen(18194, ()=>{
     console.log("Kmusic Activated on port "+ this.address().port, app.settings.env);
 });
