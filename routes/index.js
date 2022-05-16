@@ -87,7 +87,7 @@ router.post("/register", upload.single('profileImage'), (req, res)=>{
                             displayname : req.body.displayname,
                             profileImage : req.body.profileImage
     });
-    if(req.body.adminCode === 'yep')
+    if(req.body.adminCode === 'Yes')
     {
         newUser.isAdmin = true;
     }
