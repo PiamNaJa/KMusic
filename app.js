@@ -26,7 +26,7 @@ app.set("view engine" ,"ejs");
 app.use(express.static("./public"));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(methodOverride('_method'));
-// seedDB();
+seedDB();
 app.use(require('express-session')({
     secret: "secret word",
     resave: false,
