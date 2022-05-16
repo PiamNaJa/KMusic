@@ -12,13 +12,15 @@ const mainaudio = new Audio(),
             songname    : document.querySelector('.audiocontainer--name'),
             artistname  : document.querySelector('.audiocontainer--artist')
         },
-      songdata  = document.querySelectorAll('#songdata'),
-      playbtn   = document.querySelectorAll('#btnplay'),
+      songdata   = document.querySelectorAll('#songdata'),
+      playbtn    = document.querySelectorAll('#btnplay'),
+      volumeicon =  document.querySelector('#volumeicon'),
       HistorySongIndex = [],
       CheckLocation = (window.location.href).startsWith(window.location.protocol + "//" + window.location.host + "/playlist/") || (window.location.href).startsWith(window.location.protocol + "//" + window.location.host + "/artist/") || (window.location.href).startsWith(window.location.protocol + "//" + window.location.host + "/album/");
 let current = {
     Bt : 0,
-    SongIndex : 0
+    SongIndex : 0,
+    volume : 0.03
     },
     updateaudioinfo;
 mainaudio.volume = 0.03;
@@ -196,7 +198,31 @@ audiocontainer.slider.addEventListener('change', ()=>{
 
 audiocontainer.volume.addEventListener('input', ()=>{
     mainaudio.volume = audiocontainer.volume.value;
+    current.volume = mainaudio.volume;
+    if(current.volume > 0)
+    {
+        volumeicon.classList.replace('fa-volume-xmark', 'fa-volume-high');
+    }
+    else
+    {
+        volumeicon.classList.replace('fa-volume-high', 'fa-volume-xmark');
+    }
 })
+
+volumeicon.onclick = ()=>{
+    if(volumeicon.classList.contains('fa-volume-high'))
+    {
+        volumeicon.classList.replace('fa-volume-high', 'fa-volume-xmark');
+        mainaudio.volume = 0;
+        audiocontainer.volume.value = 0;
+    }
+    else
+    {
+        volumeicon.classList.replace('fa-volume-xmark', 'fa-volume-high');
+        mainaudio.volume = current.volume;
+        audiocontainer.volume.value = current.volume;
+    }
+}
 
 audiocontainer.playbt.onclick = ()=>{
     if(mainaudio.paused)

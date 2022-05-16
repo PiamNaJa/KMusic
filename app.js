@@ -9,7 +9,6 @@ const express       = require('express'),
       User          = require('./models/user'),
       seedDB        = require('./seeds.js');
 
-
 const   indexRoutes  = require('./routes/index'),
         songRoutes   = require('./routes/song'),
         artistRoutes = require('./routes/artist'),
@@ -20,13 +19,12 @@ const   indexRoutes  = require('./routes/index'),
         playlistRoutes  = require('./routes/playlist'),
         adminRoutes  = require('./routes/admin');
 
-// mongoose.connect('mongodb+srv://Kmusic:Kmusic@mycluster.vesir.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'); // เชื่อม Database
-mongoose.connect('mongodb://localhost/Kmusic');
+mongoose.connect('mongodb+srv://Kmusic:Kmusic@mycluster.vesir.mongodb.net/Kmusic?retryWrites=true&w=majority'); // เชื่อม Database
 app.set("view engine" ,"ejs");
 app.use(express.static("./public"));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(methodOverride('_method'));
-seedDB();
+// seedDB();
 app.use(require('express-session')({
     secret: "secret word",
     resave: false,
