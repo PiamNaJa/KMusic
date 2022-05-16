@@ -1248,60 +1248,61 @@ function sendDB()
                 {
                     console.log(err);
                 }
+                else
+                {
+                    Artist.remove({}, (err)=>{
+                        if(err)
+                        {
+                            console.log(err);
+                        }
+                        else
+                        {
+                            console.log("Artist removal complete");
+                            Artistdata.forEach((artist)=>{
+                                Artist.create(artist, (err, artist)=>{
+                                    if(err)
+                                    {
+                                        console.log(err);
+                                    }
+                                });
+                            })
+                            Album.remove({}, (err)=>{
+                                if(err)
+                                {
+                                    console.log(err);
+                                }
+                                else
+                                {
+                                    console.log("Album removal complete");
+                                    Albumdata.forEach((album)=>{
+                                        Album.create(album, (err, album)=>{
+                                            if(err)
+                                            {
+                                                console.log(err);
+                                            }
+                                        });
+                                    })
+                                    Song.remove({}, (err)=>{
+                                        if(err)
+                                        {
+                                            console.log(err);
+                                        }
+                                        else
+                                        {
+                                            console.log("Song removal complete");
+                                            seedSong(SlipknotSong, "Slipknot", "All hope is gone");
+                                            seedSong(BabymetalSong, "Babymetal", "Babymetal");
+                                            seedSong(YoungohmSong, "Youngohm", "Bangkok Legacy");
+                                            seedSong(ThetoySong, "The TOYS", "SUN");
+                                            seedSong(YewSong, "YEW", "Pauley & Jeen");
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
             });
-        }
-    });
-    Artist.remove({}, (err)=>{
-        if(err)
-        {
-            console.log(err);
-        }
-        else
-        {
-            console.log("Artist removal complete");
-            Artistdata.forEach((artist)=>{
-                Artist.create(artist, (err, artist)=>{
-                    if(err)
-                    {
-                        console.log(err);
-                    }
-                });
-            })
-        }
-    });
-
-    Album.remove({}, (err)=>{
-        if(err)
-        {
-            console.log(err);
-        }
-        else
-        {
-            console.log("Album removal complete");
-            Albumdata.forEach((album)=>{
-                Album.create(album, (err, album)=>{
-                    if(err)
-                    {
-                        console.log(err);
-                    }
-                });
-            })
-        }
-    });
-
-    Song.remove({}, (err)=>{
-        if(err)
-        {
-            console.log(err);
-        }
-        else
-        {
-            console.log("Song removal complete");
-            seedSong(SlipknotSong, "Slipknot", "All hope is gone");
-            seedSong(BabymetalSong, "Babymetal", "Babymetal");
-            seedSong(YoungohmSong, "Youngohm", "Bangkok Legacy");
-            seedSong(ThetoySong, "The TOYS", "SUN");
-            seedSong(YewSong, "YEW", "Pauley & Jeen");
         }
     });
 }
