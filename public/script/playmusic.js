@@ -1,5 +1,5 @@
-const mainaudio = new Audio(),
-      audiocontainer = {
+const mainaudio         = new Audio(),
+      audiocontainer    = {
             container   : document.querySelector('.audiocontainer'),
             playbt      : document.getElementById('audio--control--playbt'),
             nextbt      : document.getElementById('audio--control--nextbt'),
@@ -12,11 +12,11 @@ const mainaudio = new Audio(),
             songname    : document.querySelector('.audiocontainer--name'),
             artistname  : document.querySelector('.audiocontainer--artist')
         },
-      songdata   = document.querySelectorAll('#songdata'),
-      playbtn    = document.querySelectorAll('#btnplay'),
-      volumeicon =  document.querySelector('#volumeicon'),
-      HistorySongIndex = [],
-      CheckLocation = (window.location.href).startsWith(window.location.protocol + "//" + window.location.host + "/playlist/") || (window.location.href).startsWith(window.location.protocol + "//" + window.location.host + "/artist/") || (window.location.href).startsWith(window.location.protocol + "//" + window.location.host + "/album/");
+      songdata          = document.querySelectorAll('#songdata'),
+      playbtn           = document.querySelectorAll('#btnplay'),
+      volumeicon        =  document.querySelector('#volumeicon'),
+      HistorySongIndex  = [],
+      CheckLocation     = (window.location.href).startsWith(window.location.protocol + "//" + window.location.host + "/playlist/") || (window.location.href).startsWith(window.location.protocol + "//" + window.location.host + "/artist/") || (window.location.href).startsWith(window.location.protocol + "//" + window.location.host + "/album/");
 let current = {
     Bt : 0,
     SongIndex : 0,
