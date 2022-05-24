@@ -347,18 +347,29 @@ router.post('/album/new', middleware.isAdmin, (req,res)=>{
     let image = req.body.image.trim();
     let name = req.body.name.trim();
     let artist = req.body.artist.trim();
-    let newAlbum = {image : image, name : name, artist : {_id : artist}};    
-    Album.create(newAlbum, (err, newlyAdded)=>{
+    let newAlbum = {image : image, name : name};
+    Artist.findOne({name : artist}, (err, foundArist)=>{
         if(err)
         {
             console.log(err);
         }
         else
         {
-            req.flash('success', 'Album : ' + newlyAdded.name + ' is Added')
-            res.redirect('back');
+            Album.create(newAlbum, (err, newlyAdded)=>{
+                if(err)
+                {
+                    console.log(err);
+                }
+                else
+                {
+                    newlyAdded.artist = foundArist;
+                    newlyAdded.save();
+                    req.flash('success', 'Album : ' + newlyAdded.name + ' is Added')
+                    res.redirect('back');
+                }
+            });
         }
-    });
+    });    
 });
 
 router.get('/album/all', middleware.isAdmin, (req,res)=>{
@@ -483,8 +494,21 @@ router.put('/user/:id/', middleware.isAdmin, (req, res)=>{
         }
         else
         {
-            req.flash('success', 'Delete ' + foundUser.username +  ' Successfully');
-            res.redirect('/admin/user/all');
+            Song.find().where('_id').in(foundUser.favsong).exec((err, foundSong)=>{
+                if(err)
+                {
+                    console.log(err);
+                }
+                else
+                {
+                    foundSong.forEach((song) => {
+                        song.fav--;
+                        song.save();
+                    });
+                    req.flash('success', 'Delete ' + foundUser.username +  ' Successfully');
+                    res.redirect('/admin/user/all');
+                }
+            });
         }
     });
  });

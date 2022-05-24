@@ -1,23 +1,23 @@
-const express       = require('express'),
-      app           = express(),
-      bodyParser    = require("body-parser"),
-      mongoose      = require('mongoose'),
-      passport      = require('passport'),
-      localStrategy = require('passport-local'),
-      flash         = require('connect-flash'),
+const express        = require('express'),
+      app            = express(),
+      bodyParser     = require("body-parser"),
+      mongoose       = require('mongoose'),
+      passport       = require('passport'),
+      localStrategy  = require('passport-local'),
+      flash          = require('connect-flash'),
       methodOverride = require('method-override'),
-      User          = require('./models/user'),
-      seedDB        = require('./seeds.js');
+      User           = require('./models/user'),
+      seedDB         = require('./seeds.js');
 
-const   indexRoutes  = require('./routes/index'),
-        songRoutes   = require('./routes/song'),
-        artistRoutes = require('./routes/artist'),
-        searchRoutes = require('./routes/search'),
-        albumRoutes  = require('./routes/album'),
-        genreRoutes  = require('./routes/genre'),
-        userRoutes  = require('./routes/user'),
+const   indexRoutes     = require('./routes/index'),
+        songRoutes      = require('./routes/song'),
+        artistRoutes    = require('./routes/artist'),
+        searchRoutes    = require('./routes/search'),
+        albumRoutes     = require('./routes/album'),
+        genreRoutes     = require('./routes/genre'),
+        userRoutes      = require('./routes/user'),
         playlistRoutes  = require('./routes/playlist'),
-        adminRoutes  = require('./routes/admin');
+        adminRoutes     = require('./routes/admin');
 
 mongoose.connect('mongodb+srv://Kmusic:Kmusic@mycluster.vesir.mongodb.net/Kmusic?retryWrites=true&w=majority'); // เชื่อม Database
 app.set("view engine" ,"ejs");
