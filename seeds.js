@@ -1188,6 +1188,200 @@ const YewSong = [
     }
 ]
 
+const BMTHSong = [
+    {
+        image : "https://i.scdn.co/image/ab67616d0000b27391492f8e1e57fba17e4b36e4",
+        name :  "Can You Feel My Heart",
+        genre : "Rock",
+        fav : 999,
+        lyric : `Can you hear the silence?
+        Can you see the dark?
+        Can you fix the broken?
+        Can you feel, can you feel my heart?
+        Can you help the hopeless?
+        Well, I'm begging on my knees
+        Can you save my bastard soul?
+        Will you wait for me?
+        I'm sorry, brothers, so sorry, lover
+        Forgive me, father, I love you, mother
+        Can you hear the silence?
+        Can you see the dark?
+        Can you fix the broken?
+        Can you feel my heart?
+        Can you feel my heart?
+        I'm scared to get close, and I hate being alone
+        I long for that feeling to not feel at all
+        The higher I get, the lower I'll sink
+        I can't drown my demons, they know how to swim
+        I'm scared to get close, and I hate being alone
+        I long for that feeling to not feel at all
+        The higher I get, the lower I'll sink
+        I can't drown my demons, they know how to swim
+        I'm scared to get close, and I hate being alone
+        I long for that feeling to not feel at all
+        The higher I get, the lower I'll sink
+        I can't drown my demons, they know how to swim
+        Can you feel my heart?
+        Can you hear the silence?
+        Can you see the dark?
+        Can you fix the broken?
+        Can you feel, can you feel my heart?`,
+        audio : "/demo/BMTH/CanYouFeelMyHeart.mp3"            
+    },
+    {
+        image : "https://i.pinimg.com/originals/c2/af/6c/c2af6c502303fe3e1180dc153abc355a.jpg",
+        name :  "The House of Wolves",
+        genre : "Rock",
+        fav : 80,
+        lyric : `Show me a sign, show me a reason to give
+        A solitary fuck about your goddamn beliefs
+        I'm going blind, but one thing's clear
+        Death is the only salvation you'll feel
+        Brick by brick by brick
+        Brick by brick by brick
+        What you call faith, I call a sorry excuse
+        Cloak and daggers murder the truth
+        The bitter taste, there's nothing else
+        I'll bow for your king when he shows himself
+        Brick by brick by brick
+        These walls begin to cave in
+        The house of wolves you built
+        Whispers in a thousand tongues
+        Show me your face, show me a reason to think
+        My soul can be saved if I sell you my sins
+        I'm going blind, but one thing's clear
+        Death is the only salvation for me
+        Brick by brick by brick
+        These walls begin to cave in
+        The house of wolves you built
+        Whispers in a thousand tongues
+        The house of wolves you built
+        The house of wolves you built
+        The house of wolves you built
+        Will burn just like a thousand suns
+        And when you die, the only kingdom you'll see
+        Is two foot wide and six foot deep
+        Yeah
+        And when you die, the only kingdom you'll see
+        Is two foot wide and six foot deep
+        And when you die, the only kingdom you'll see
+        Is two foot wide and six foot deep, oh
+        Brick by brick by brick
+        Brick by brick by brick
+        Brick by brick by brick
+        These walls begin to cave in
+        The house of wolves you built
+        Whispers in a thousand tongues
+        Brick by brick by brick
+        These walls begin to cave in
+        The house of wolves you built
+        Will burn just like a thousand suns
+        You said you want me?
+        Now I'm here, now I'm here, now I'm here!
+        You said you want me?
+        Now I'm here, now I'm here, now I'm here`,
+        audio : "/demo/BMTH/TheHouseofWolves.mp3"            
+    },
+    {
+        image : "https://i.ytimg.com/vi/CJCADlwhrSQ/maxresdefault.jpg",
+        name :  "Empire (Let Them Sing)",
+        genre : "Rock",
+        fav : 400,
+        lyric : `It's the start of the end, surrender the throne
+        The blood on my hands covered the holes
+        We've been surrounded by vicious cycles
+        And we're truly alone
+        The scars on your heart are yours to atone
+        We've been surrounded, let them sing, let them sing
+        The deeper you dig, the darker it gets
+        There's nowhere else for us to go
+        We live what we learn and then we forget
+        We'll never find our way back home, come on
+        They came like moths to a flame
+        You left like a house in a hurricane
+        The wolves are at my door
+        It's the start of the end, surrender the throne
+        The blood on my hands covered the holes
+        We've been surrounded by vicious cycles
+        The end and we're truly alone
+        The scars on your heart are yours to atone
+        We've been surrounded, let them sing, let them sing
+        I hear them clawing at the gates
+        Let us in, let us in
+        I hear them calling out my name
+        I don't care
+        Let them sing, let them sing, let them sing
+        Let the bastards sing
+        Let them sing, let them sing
+        Let the bastards sing
+        Let them sing, let them sing
+        Let the bastards sing
+        Let the godforsaken bastards sing
+        They came like moths to a flame
+        You left like a house in a hurricane
+        The wolves are at my door
+        But I can't see the writing on the walls
+        The wolves are at my door
+        Waiting for my empire to fall
+        It's the start of the end, surrender the throne
+        The blood on my hands covered the holes
+        We've been surrounded by vicious cycles
+        The end and we're truly alone
+        The scars on your heart are yours to atone
+        We've been surrounded, let them sing, let them sing`,
+        audio : "/demo/BMTH/Empire.mp3"            
+    },
+    {
+        image : "https://upload.wikimedia.org/wikipedia/en/thumb/f/f5/Bmth_sleepwalking_artwork.jpg/220px-Bmth_sleepwalking_artwork.jpg",
+        name :  "Sleepwalking",
+        genre : "Rock",
+        fav : 600,
+        lyric : `My secrets are burning a hole through my heart
+        And my bones catch a fever
+        When it cuts you up this deep
+        It's hard to find a way to breathe
+        Your eyes are swallowing me
+        Mirrors start to whisper, shadows start to sing
+        My skin's smothering me
+        Help me find a way to breathe
+        Time stood still the way it did before
+        It's like I'm sleepwalking
+        Fell into another hole again
+        It's like I'm sleepwalking
+        I'm at the edge of the world
+        Where do I go from here? Do I disappear?
+        Edge of the world
+        Should I sink or swim? Or simply disappear?
+        Your eyes are swallowing me
+        Mirrors start to whisper, shadows start to sing
+        My skin's smothering me
+        Help me find a way to breathe, sing it
+        Time stood still the way it did before
+        It's like I'm sleepwalking
+        Fell into another hole again
+        It's like I'm sleepwalking
+        Wake up
+        Take my hand and give me a reason to start again
+        Wake up
+        Pull me out and give me a reason to start again
+        Time stands still
+        Time stands still
+        (Time stands still)
+        (Time stands still)
+        Your eyes are swallowing me
+        Mirrors start to whisper, shadows start to sing
+        My skin's smothering me
+        Help me find a way to breathe
+        Time stood still the way it did before
+        It's like I'm sleepwalking
+        Fell into another hole again
+        It's like I'm sleepwalking (it's like I'm sleepwalking)
+        Time stood still the way it did before
+        It's like I'm sleepwalking`,
+        audio : "/demo/BMTH/Sleepwalking.mp3"            
+    }
+]
+
 const Artistdata = [
     {
         image : "https://m.thaiticketmajor.com/img_artist/prefix_1/0264/264/264-5ea7d02c147ee-a.jpg",
@@ -1208,6 +1402,10 @@ const Artistdata = [
     {
         image : "https://yt3.ggpht.com/PoJESpwmccba8amhic0OcyxLdFopwYptBItocZF4qvd-T76Qw0Vi4hcJk--gObF9gy-8DQtXRQ=s900-c-k-c0x00ffffff-no-rj",
         name : "YEW"
+    },
+    {
+        image : "https://s.isanook.com/jo/0/ud/482/2413653/bmth-tn2.png",
+        name : "Bring Me the Horizon"
     }
 ];
 
@@ -1231,6 +1429,10 @@ const Albumdata = [
     {
         image : "https://s.isanook.com/jo/0/rp/r/w700/ya0xa0m1w0/aHR0cDovL2ltYWdlLmpvb3guY29tL0pPT1hjb3Zlci8wLzVmZTE5NTYxZjhjODM5ODUvMTAwMC5qcGc=.jpg",
         name : "Pauley & Jeen"
+    },
+    {
+        image : "https://upload.wikimedia.org/wikipedia/th/b/bb/BMTH_Sempiternal.png",
+        name : "Sempiternal"
     }
 ];
 
@@ -1259,7 +1461,7 @@ function sendDB()
                         {
                             console.log("Artist removal complete");
                             Artistdata.forEach((artist)=>{
-                                Artist.create(artist, (err, artist)=>{
+                                Artist.create(artist, (err)=>{
                                     if(err)
                                     {
                                         console.log(err);
@@ -1275,7 +1477,7 @@ function sendDB()
                                 {
                                     console.log("Album removal complete");
                                     Albumdata.forEach((album)=>{
-                                        Album.create(album, (err, album)=>{
+                                        Album.create(album, (err)=>{
                                             if(err)
                                             {
                                                 console.log(err);
@@ -1295,6 +1497,7 @@ function sendDB()
                                             seedSong(YoungohmSong, "Youngohm", "Bangkok Legacy");
                                             seedSong(ThetoySong, "The TOYS", "SUN");
                                             seedSong(YewSong, "YEW", "Pauley & Jeen");
+                                            seedSong(BMTHSong, "Bring Me the Horizon", "Sempiternal");
                                         }
                                     });
                                 }

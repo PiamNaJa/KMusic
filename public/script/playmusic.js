@@ -20,10 +20,10 @@ const mainaudio         = new Audio(),
 let current = {
     Bt : 0,
     SongIndex : 0,
-    volume : 0.03
+    volume : audiocontainer.volume.value
     },
     updateaudioinfo;
-mainaudio.volume = 0.03;
+mainaudio.volume = audiocontainer.volume.value;
 
 function showCurrentTime()
 {
