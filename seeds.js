@@ -978,7 +978,7 @@ const ThetoySong = [
         audio : "/demo/Thetoy/หน้าหนาวที่แล้ว.mp3"
     },
     {
-        image : "https://www.songdee.com/wp-content/uploads/2017/05/%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B8%A4%E0%B8%94%E0%B8%B9%E0%B8%9D%E0%B8%99-The-TOYS.jpg",
+        image : "https://i1.sndcdn.com/artworks-000487588356-d0gys1-t500x500.jpg",
         name :  "ก่อนฤดูฝน",
         genre : "Pop",
         fav : 500,
@@ -1400,7 +1400,7 @@ const Artistdata = [
         name : "The TOYS"
     },
     {
-        image : "https://yt3.ggpht.com/PoJESpwmccba8amhic0OcyxLdFopwYptBItocZF4qvd-T76Qw0Vi4hcJk--gObF9gy-8DQtXRQ=s900-c-k-c0x00ffffff-no-rj",
+        image : "https://res.theconcert.com/c_thumb/051d8d5d1fedc4e483d14c5a89926a428/1.jpg",
         name : "YEW"
     },
     {
